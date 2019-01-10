@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="transparente" style="text-align: center">
+    <ion-title style="color: #ffffffd1">Simples Pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background-color: rgba(0,0,0,0.87)">
+  <ion-row style="margin-top: 30%">
+    <ion-col text-center>
+      <span style="color: #afafaf!important; font-size: 1.3em">Entre ou crie a sua conta!</span>
+    </ion-col>
+  </ion-row>
+  <form padding style="margin-top: 5%">
+    <ion-row>
+      <ion-col>
+        <ion-item class="input-login">
+          <ion-input placeholder="Digite seu e-mail" type="email" [(ngModel)]="credencial.email"
+                     [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item class="input-login">
+          <ion-input placeholder="Digite a sua senha" type="password" [(ngModel)]="credencial.senha"
+                     [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row margin-top>
+      <ion-col text-center style="padding-bottom: 0">
+        <button ion-button color="secondary" full round (click)="fazLogin()"
+                style="height: 45px; text-transform: none; font-size: 1.2em">
+          Entrar
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center style="padding-top: 0">
+        <button ion-button clear style="color: #afafaf!important;text-transform: none" (click)="abreCadastro()">Criar
+          minha
+          conta!
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

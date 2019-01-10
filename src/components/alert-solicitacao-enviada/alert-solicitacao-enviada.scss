@@ -1,0 +1,22 @@
+alert-solicitacao-enviada {
+  .dialog-background {
+    background-color: rgba(0, 0, 0, 0.70) !important;
+    position: relative;
+    height: 100%;
+  }
+
+  .middle {
+    height: 350px;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 4px;
+  }
+}

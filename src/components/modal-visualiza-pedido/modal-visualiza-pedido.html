@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button clear icon-only color="light" (click)="viewCtrl.dismiss()">
+        <ion-icon ios="ios-arrow-back" name="close"></ion-icon>
+        <div *ngIf="platform.is('ios')">Voltar</div>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Visualizar Pedido
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: whitesmoke">
+  <ion-list>
+    <ion-card *ngFor="let produto of pedido.produtos">
+      <ion-row>
+        <ion-col col-4 no-padding style="display: flex; align-items: center;max-width: 30%">
+          <ion-thumbnail (click)="abreFoto(produto)">
+            <img [src]="produto.grade.foto" style="height: 100%; width: 100%">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col style="margin-left: 12px">
+          <div>
+            <span text-wrap class="nome">{{produto.nome}}</span>
+          </div>
+          <div>
+            <span text-wrap class="preco">R${{(produto.preco).toFixed(2)}}</span>
+          </div>
+          <div *ngIf="!isCliente()">
+            <span class="referencia" text-wrap>Referência do produto: <b>{{produto.id}}</b></span>
+          </div>
+          <div *ngIf="!isCliente()">
+            <span class="referencia" text-wrap>Referência da cor: <b>{{produto.grade.id}}</b></span>
+          </div>
+          <div style="margin-top: 6px">
+            <div *ngFor="let tamanho of produto.grade.tamanhos">
+              <span text-wrap *ngIf="tamanho.quantidade < 2" class="tamanho">{{tamanho.quantidade}} unidade no tamanho {{tamanho.tipo}}</span>
+              <span text-wrap *ngIf="tamanho.quantidade > 1" class="tamanho">{{tamanho.quantidade}} unidades no tamanho {{tamanho.tipo}}</span>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <div text-center style="background-color: #260031">
+    <button ion-button clear full color="light" style="text-transform: none; height: 44px; margin: 0"
+            *ngIf="!isCliente()"
+            (click)="abreOpcoesPedido()">
+      <ion-icon float-left style="margin-right: 8px; font-size: x-large" name="settings"></ion-icon>
+      Opções do Pedido
+    </button>
+    <span style="color: whitesmoke;line-height: 35px"
+          *ngIf="isCliente()">Total do pedido: R${{getTotalPreco(pedido)}}</span>
+  </div>
+</ion-footer>

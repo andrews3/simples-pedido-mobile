@@ -1,0 +1,94 @@
+page-varejo-seleciona-tabs {
+  .tabbar, .tabs-ios, .tabs-md, .tabs-wp {
+    .tab-button-icon {
+      background: no-repeat center;
+      height: 24px;
+      width: 24px;
+      background-size: contain;
+      -webkit-background-size: contain;
+      -moz-background-size: contain;
+      -o-background-size: contain;
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .tabs-ios {
+    a[aria-selected=false] {
+      span {
+        color: #919191;
+      }
+      .tab-button-icon[ng-reflect-name=shop], .tab-button-icon[aria-label="shop"] {
+        background-image: url(../assets/imgs/shop.svg);
+      }
+    }
+
+    a[aria-selected=false] {
+      span {
+        color: #919191;
+      }
+      .tab-button-icon[ng-reflect-name=predio], .tab-button-icon[aria-label="predio"] {
+        background-image: url(../assets/imgs/predio.svg);
+      }
+    }
+
+    a[aria-selected=true] {
+      span {
+        color: white;
+      }
+      .tab-button-icon[ng-reflect-name=shop], .tab-button-icon[aria-label="shop"] {
+        background-image: url(../assets/imgs/shop-white.svg);
+      }
+    }
+
+    a[aria-selected=true] {
+      span {
+        color: white;
+      }
+      .tab-button-icon[ng-reflect-name=predio], .tab-button-icon[aria-label="predio"] {
+        background-image: url(../assets/imgs/predio-white.svg);
+      }
+
+    }
+  }
+
+  .tabs-md {
+    a[aria-selected=false] {
+      span {
+        color: #919191;
+      }
+      .tab-button-icon[ng-reflect-name=shop], .tab-button-icon[aria-label="shop"] {
+        background-image: url(../assets/imgs/shop.svg);
+      }
+    }
+
+    a[aria-selected=false] {
+      span {
+        color: #919191;
+      }
+      .tab-button-icon[ng-reflect-name=predio], .tab-button-icon[aria-label="predio"] {
+        background-image: url(../assets/imgs/predio.svg);
+      }
+    }
+
+    a[aria-selected=true] {
+      span {
+        color: white;
+      }
+      .tab-button-icon[ng-reflect-name=shop], .tab-button-icon[aria-label=shop] {
+        background-image: url(../assets/imgs/shop-white.svg);
+      }
+    }
+
+    a[aria-selected=true] {
+      span {
+        color: white;
+      }
+      .tab-button-icon[ng-reflect-name=predio], .tab-button-icon[aria-label="predio"] {
+        background-image: url(../assets/imgs/predio-white.svg);
+      }
+
+    }
+  }
+}

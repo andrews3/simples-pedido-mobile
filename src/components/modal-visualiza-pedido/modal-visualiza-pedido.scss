@@ -1,0 +1,22 @@
+modal-visualiza-pedido {
+
+  ion-list {
+    margin-bottom: 0 !important;
+  }
+  .nome {
+    font-size: large;
+    font-weight: bold;
+  }
+  .preco {
+    color: darkgray;
+  }
+  .referencia {
+    color: darkgray;
+    font-size: small;
+  }
+  .tamanho {
+    color: darkgray;
+    font-size: smaller;
+  }
+
+}

@@ -1,0 +1,94 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Nova Conta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form padding-left padding-right>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Digite o seu nome</ion-label>
+          <ion-input [(ngModel)]="usuario.nome"
+                     name="nome" type="name" placeholder="(Ex: Joana de Castro)"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Digite o seu email</ion-label>
+          <ion-input [(ngModel)]="usuario.email"
+                     name="email" type="email"
+                     placeholder="(Ex: joanadecastro@gmail.com)"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Digite o número do seu telefone</ion-label>
+          <ion-input [brmasker]="{phone: true}" type="text" [(ngModel)]="usuario.telefone"
+                     placeholder="(Ex: (48) 99976-3099)"
+                     name="telefone"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="usuario.userTipo !== 'vendedor'">
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Digite o nome da sua loja</ion-label>
+          <ion-input [(ngModel)]="usuario.nomeLoja"
+                     name="nomeLoja" type="text"
+                     placeholder="(Ex: Glamour)"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked="">Digite uma senha</ion-label>
+          <ion-input [(ngModel)]="usuario.senha"
+                     name="senha" type="password"
+                     placeholder="Mínimo de 6 caracteres"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Digite a senha novamente</ion-label>
+          <ion-input [(ngModel)]="senha2"
+                     name="senha2" type="password"
+                     placeholder="Digite a mesma senha"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="usuario.userTipo === 'solicitacao'">
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>Digite o nome do shopping</ion-label>
+          <ion-input [(ngModel)]="usuario.nomeShopping"
+                     name="nomeShopping" type="text"
+                     placeholder="(Ex: Shopping Prime)"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-row margin-top>
+    <ion-col text-center>
+      <button *ngIf="usuario.userTipo === 'solicitacao'" style="text-transform: none" ion-button round color="primary"
+              (click)="solicitaCadastro()">
+        Solicitar Cadastro
+      </button>
+      <button *ngIf="usuario.userTipo != 'solicitacao'" style="text-transform: none" ion-button round color="primary"
+              (click)="concluiCadastro()">
+        Concluir Cadastro
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

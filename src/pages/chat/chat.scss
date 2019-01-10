@@ -1,0 +1,45 @@
+page-chat {
+  .lista-chat {
+    overflow: scroll;
+    max-height: calc(100% - 57px);
+    height: calc(100% - 57px);
+    background-color: lightgrey;
+  }
+
+  .scroll-content {
+    padding-bottom: 0 !important;
+  }
+
+  .mensagem {
+    border-radius: 0 8px 8px 8px;
+    background: white;
+    float: left;
+    width: auto;
+    max-width: 70%;
+    min-width: 100px;
+    font-size: 1.1em;
+    margin: 10px 0 1px 10px;
+  }
+
+  .mensagem-mine {
+    border-radius: 8px 0 8px 8px;
+    margin-left: 0;
+    margin-right: 10px;
+    background: #260031;
+    color: white !important;
+    float: right;
+  }
+
+  .last-mensagem-mine {
+    margin-top: 3px;
+    border-radius: 8px;
+  }
+
+  .text-padding {
+    padding: 6px
+  }
+
+  .font-white {
+    color: white !important;
+  }
+}

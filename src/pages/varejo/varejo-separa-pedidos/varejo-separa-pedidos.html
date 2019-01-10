@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title style="font-size: 1.7rem">Separando Pedido</ion-title>
+    <ion-buttons right>
+      <button clear icon-only ion-button style="position: relative; margin-right: 8px" (click)="visualizaCarrinho()">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge color="secondary" style="position: absolute; bottom: 0; right: -3px; padding: 1px 5px">
+          {{getQuantidadeCarrinho()}}
+        </ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="content" #content style="background-color: lightgray">
+  <ion-list style="width: 100%; height: 100%" #container>
+    <ion-card class="card-produto" no-padding *ngFor="let produto of produtos">
+      <img [defaultImage]="'assets/imgs/spin.svg'" (load)="log(produto)" [lazyLoad]="getFoto(produto)"
+           (click)="abreFoto(produto)" [scrollObservable]="content.ionScroll"/>
+      <!--<img [src]="getFoto(produto)" (click)="abreFoto(produto)" (load)="log(produto)"-->
+      <!--style="width: 100%;"/>-->
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 no-padding>
+            <span style="font-size: 3vw; color: #858585;">Nas cores:</span>
+            <ion-row>
+              <ion-col col-4 *ngFor="let cor of produto?.grade" no-padding>
+                <div
+                  style="width: calc(100% - 4px); padding-bottom: calc(100% - 4px); border-radius: 3px; margin: 2px"
+                  [style.backgroundColor]="toColor(cor?.cor)" (click)="trocaFoto(produto, cor)"></div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col col-6 no-padding text-center>
+            <div style="margin-top: 4px">
+              <span style="font-size: 4vw">
+                {{produto?.nome}}
+              </span>
+            </div>
+            <div>
+              <span style="font-size: 4vw; color: #4d4d4d">
+                R${{produto?.preco}}
+              </span>
+            </div>
+          </ion-col>
+          <ion-col col-3 no-padding="">
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button no-margin ion-button full color="primary"
+              style="border-radius: 0 0 8px 8px" (click)="abreProduto(produto)">
+        <ion-icon name="basket" style="margin-right: 5px"></ion-icon>
+        Adicionar ao Carrinho
+      </button>
+    </ion-card>
+    <!--<ion-card class="card-produto" col-sm-12 col-md-9 col-lg-6 no-padding *ngFor="let produto of produtos">-->
+    <!--<img [lazyLoad]="getFoto(produto)" [defaultImage]="defaultImage" offset="100" (click)="abreFoto(produto)">-->
+    <!--<ion-grid>-->
+    <!--<ion-row>-->
+    <!--<ion-col col-3 no-padding>-->
+    <!--<span style="font-size: 3vw; color: #858585;">Nas cores:</span>-->
+    <!--<ion-row>-->
+    <!--<ion-col col-4 *ngFor="let cor of produto.grade" no-padding>-->
+    <!--<div-->
+    <!--style="width: calc(100% - 4px); padding-bottom: calc(100% - 4px); border-radius: 3px; margin: 2px"-->
+    <!--[style.backgroundColor]="toColor(cor.cor)" (click)="trocaFoto(produto, cor)"></div>-->
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+    <!--</ion-col>-->
+    <!--<ion-col col-6 no-padding text-center>-->
+    <!--<div style="margin-top: 4px">-->
+    <!--<span style="font-size: 4vw">-->
+    <!--{{produto.nome}}-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--<span style="font-size: 4vw; color: #4d4d4d">-->
+    <!--R${{produto.preco}}-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</ion-col>-->
+    <!--<ion-col col-3 no-padding="">-->
+
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+    <!--</ion-grid>-->
+    <!--<button no-margin ion-button full color="primary"-->
+    <!--style="border-radius: 0 0 8px 8px" (click)="abreProduto(produto)">-->
+    <!--<ion-icon name="basket" style="margin-right: 5px"></ion-icon>-->
+    <!--Adicionar ao Carrinho-->
+    <!--</button>-->
+    <!--</ion-card>-->
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <div text-center style="background-color: #260031">
+    <button ion-button clear full color="light" style="text-transform: none; height: 44px; margin: 0"
+            (click)="finalizaPedido()">
+      <ion-icon float-left style="margin-right: 8px; font-size: x-large" name="cart"></ion-icon>
+      Finalizar Pedido
+    </button>
+  </div>
+</ion-footer>

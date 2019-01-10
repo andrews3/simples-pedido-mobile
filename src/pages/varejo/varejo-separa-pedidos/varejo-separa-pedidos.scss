@@ -1,0 +1,38 @@
+page-varejo-separa-pedidos {
+  .toolbar-title-md {
+    font-size: 1.7rem;
+  }
+
+  .card-produto {
+    border-radius: 8px;
+    width: calc(100% - 20px);
+    margin: 5px 10px;
+  }
+
+  .list-ios {
+    margin-bottom: 0;
+  }
+
+  .list-md {
+    margin-bottom: 0;
+  }
+
+  .toolbar-md {
+    height: 44px !important;
+    max-height: 44px !important;
+    min-height: 44px !important;
+  }
+
+  //.img-unloaded {
+  //  background: url("../assets/imgs/spin.svg") no-repeat center;
+  //  display: block;
+  //  width: 100%;
+  //  padding-bottom: 100%;
+  //  margin: auto;
+  //  left: 0;
+  //  right: 0;
+  //  top: 0;
+  //  bottom: 0;
+  //  position: absolute;
+  //}
+}

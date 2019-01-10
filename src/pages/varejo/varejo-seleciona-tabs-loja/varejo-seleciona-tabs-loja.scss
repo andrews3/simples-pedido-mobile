@@ -1,0 +1,31 @@
+page-varejo-seleciona-tabs-loja {
+  .logo-loja {
+    width: calc(100% - 30px);
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    margin: 10px 15px;
+  }
+
+  .spinner {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .span-0 {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: inline-table;
+    padding: 30px
+  }
+}

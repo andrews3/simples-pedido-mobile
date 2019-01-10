@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title *ngIf="shopping">
+      {{shopping.nomeShopping}}
+    </ion-title>
+    <ion-title *ngIf="!shopping">
+      Lojas
+    </ion-title>
+    <ion-buttons right *ngIf="!shopping">
+      <button ion-button icon-only (click)="abreMenu($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-spinner
+    class="spinner" color="primary" *ngIf="lojas.length < 1 && !loaded">
+  </ion-spinner>
+  <div class="span-0" text-center text-wrap *ngIf="lojas.length < 1 && loaded">
+    <span style="color: #8c8c8c">
+      Não encontramos nenhuma loja, que não pertence a um shopping, em que você esteja cadastrado :(
+    </span>
+  </div>
+  <ion-grid *ngIf="lojas.length > 0">
+    <ion-row>
+      <ion-col *ngFor="let loja of lojas" col-6 col-md-4 col-lg-3>
+        <img [src]="loja.logo" (click)="selecionaLoja(loja)"
+             class="logo-loja">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

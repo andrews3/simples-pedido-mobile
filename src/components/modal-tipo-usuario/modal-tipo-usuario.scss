@@ -1,0 +1,40 @@
+modal-tipo-usuario {
+  .dialog-background {
+    background-color: rgba(0, 0, 0, 0.80);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .middle {
+    //height: 300px;
+    //overflow: auto;
+    //margin: auto;
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    //bottom: 0;
+    //right: 0;
+  }
+
+  .icon-button {
+    height: 35px;
+    width: 35px;
+  }
+
+  .botao-cadastro {
+    text-transform: none;
+    height: 95px;
+    margin: 0;
+    margin-top: 1px;
+  }
+
+  .button-ios {
+    font-size: 1.3rem;
+  }
+
+  .button-md {
+    font-size: 1.3rem;
+  }
+}

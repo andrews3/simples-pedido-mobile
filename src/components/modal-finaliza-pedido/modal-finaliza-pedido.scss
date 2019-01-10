@@ -1,0 +1,29 @@
+modal-finaliza-pedido {
+  .nome {
+    font-size: large;
+    font-weight: bold;
+  }
+  .preco {
+    color: darkgray;
+  }
+  .tamanho {
+    color: darkgray;
+    font-size: smaller;
+  }
+
+  .preco-total {
+    margin-top: 8px;
+    float: right;
+    color: #260031;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+
+  .list-ios {
+    margin-bottom: 0;
+  }
+
+  .list-md {
+    margin-bottom: 0;
+  }
+}

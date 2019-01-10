@@ -1,0 +1,45 @@
+<div class="dialog-background">
+  <ion-fab mini top left>
+    <button ion-fab color="danger" style="height: 36px; width: 36px" (click)="fechaDialog()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-fab>
+  <div style="flex: 1" (click)="fechaDialog()"></div>
+  <div class="middle" style="margin-right: 10px; margin-left: 10px; border-radius: 3px">
+    <ion-row>
+      <ion-col style="padding: 0">
+        <button ion-button full color="light" class="botao-cadastro"
+                (click)="fechaDialog('cliente')">
+          <div>
+            <div>
+              <img src="assets/imgs/loja-colorido.svg" class="icon-button">
+            </div>
+            <label>Sou varejista</label>
+          </div>
+        </button>
+        <button ion-button full color="light" class="botao-cadastro"
+                (click)="fechaDialog('solicitacao')">
+          <div>
+            <div>
+              <img src="assets/imgs/atacado.svg" class="icon-button">
+            </div>
+            <label>Sou atacadista</label>
+          </div>
+        </button>
+        <button ion-button full color="light" class="botao-cadastro"
+                (click)="fechaDialog('vendedor')">
+          <div>
+            <div>
+              <img src="assets/imgs/vendedor.svg" class="icon-button">
+            </div>
+            <div style="display: grid">
+              <label>Sou funcionário de uma</label>
+              <label>loja atacado</label>
+            </div>
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div style="flex: 1" (click)="fechaDialog()"></div>
+</div>

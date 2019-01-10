@@ -1,0 +1,78 @@
+<!--
+  Generated template for the VarejoPedidosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Meus Pedidos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content id="content" style="background-color: whitesmoke">
+
+  <div style="display: inline-flex" id="div-imagens">
+    <ion-card style="margin-left: 10px; margin-right: 5px" (click)="isFinalizados = false"
+              [ngClass]="{'selected': !isFinalizados}">
+      <img src="assets/imgs/shoppingbag.png"/>
+      <div class="card-title" text-wrap>Pedidos Abertos</div>
+    </ion-card>
+    <ion-card style="margin-left: 5px; margin-right: 10px" (click)="isFinalizados = true"
+              [ngClass]="{'selected': isFinalizados}">
+      <img src="assets/imgs/estoque.jpg"/>
+      <div class="card-title" text-wrap>Pedidos Finalizados</div>
+    </ion-card>
+  </div>
+
+  <ion-list [style.height]="getListHeight() + 'px'" class="lista"
+            [ngClass]="{'slide-in': !isFinalizados, 'slide-out': isFinalizados}">
+    <button ion-item *ngFor="let pedido of pedidos" (click)="abrePedido(pedido)"
+            style="padding-left: 0; background-color: transparent !important;">
+      <ion-thumbnail item-start style="margin: 0">
+        <img src="assets/imgs/bag.svg" style="padding: 10px; margin: 8px">
+      </ion-thumbnail>
+      <div>
+        <div style="font-weight: bold">
+          {{pedido.cliente.nome}}
+        </div>
+        <div style="color: darkgray; font-size: smaller; font-weight: bold">
+          Loja {{pedido.cliente.nomeLoja}}
+        </div>
+        <div style="color: darkgray; font-size: small" text-wrap>
+          {{getDataHora(pedido.timestamp)}}
+        </div>
+        <div style="color: darkgray; font-size: small" text-wrap>
+          Total do pedido: R${{getTotalPreco(pedido)}}
+        </div>
+      </div>
+    </button>
+  </ion-list>
+
+  <ion-list [style.height]="getListHeight() + 'px'" class="lista lista-finalizado"
+            [ngClass]="{'slide-in': isFinalizados, 'slide-out-finalizado': !isFinalizados}">
+    <button ion-item *ngFor="let pedido of pedidosFinalizados" (click)="abrePedido(pedido)"
+            style="padding-left: 0; background-color: transparent !important;">
+      <ion-thumbnail item-start style="margin: 0">
+        <img src="assets/imgs/box.svg" style="padding: 10px; margin: 8px">
+      </ion-thumbnail>
+      <div>
+        <div style="font-weight: bold">
+          {{pedido.cliente.nome}}
+        </div>
+        <div style="color: darkgray; font-size: smaller; font-weight: bold">
+          Loja {{pedido.cliente.nomeLoja}}
+        </div>
+        <div style="color: darkgray; font-size: small" text-wrap>
+          {{getDataHora(pedido.timestamp)}}
+        </div>
+        <div style="color: darkgray; font-size: small" text-wrap>
+          Total do pedido: R${{getTotalPreco(pedido)}}
+        </div>
+      </div>
+    </button>
+  </ion-list>
+
+</ion-content>

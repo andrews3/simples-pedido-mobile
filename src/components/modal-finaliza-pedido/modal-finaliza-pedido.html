@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only clear (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back">
+        </ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Meu Carrinho
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background-color: whitesmoke">
+  <ion-list style="max-height: 80%; overflow-y: scroll; box-shadow: 0.6px 1px 5px #888888">
+    <ion-item *ngFor="let produto of produtoProvider.getProdutosPedido(lojaId)">
+      <ion-row>
+        <ion-col col-auto no-padding style="display: flex; align-items: center;max-width: 30%">
+          <ion-thumbnail (click)="abreFoto(produto)">
+            <img [src]="produto.grade.foto" style="height: 100%; width: 100%">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col style="margin-left: 12px">
+          <div>
+            <span text-wrap class="nome">{{produto.nome}}</span>
+          </div>
+          <div>
+            <span text-wrap class="preco">R${{(produto.preco).toFixed(2)}}</span>
+          </div>
+          <div style="margin-top: 6px">
+            <div *ngFor="let tamanho of produto.grade.tamanhos">
+              <span text-wrap *ngIf="tamanho.quantidade < 2" class="tamanho">{{tamanho.quantidade}} unidade no tamanho {{tamanho.tipo}}</span>
+              <span text-wrap *ngIf="tamanho.quantidade > 1" class="tamanho">{{tamanho.quantidade}} unidades no tamanho {{tamanho.tipo}}</span>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-row style="display: flow-root">
+    <span class="preco-total">Investimento total: R${{getTotalPreco()}}</span>
+  </ion-row>
+  <ion-row *ngIf="isFinalizar">
+    <ion-col text-center>
+      <button ion-button round style="margin-top: 10px" (click)="verificaEnvio()">
+        <ion-icon name="ios-happy" style="margin-right: 12px; font-size: xx-large"></ion-icon>
+        Enviar Pedido
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>

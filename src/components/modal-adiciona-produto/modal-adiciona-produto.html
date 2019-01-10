@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only clear (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-back">
+        </ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Adicionar ao Carrinho
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--FOTO DA COR SELECIONADA-->
+  <div style="width: 100%; text-align: center">
+    <img [src]="getFoto()" (click)="abreFoto()" class="imagem-foto">
+  </div>
+  <!---->
+  <!--CORES DISPONIVEIS-->
+  <ion-row style="margin: 10px" justify-content-center>
+    <ion-col col-2 no-padding *ngFor="let cor of produto.grade">
+      <div
+        style="width: calc(100% - 4px); padding-bottom: calc(100% - 4px); border-radius: 3px; margin: 2px"
+        [style.backgroundColor]="toColor(cor.cor)" (click)="trocaFoto(cor)"></div>
+    </ion-col>
+  </ion-row>
+  <!---->
+  <ion-row>
+    <ion-col text-center style="color: darkgray">
+      <b>Quantidade total: {{verificaTotal()}}</b>
+    </ion-col>
+  </ion-row>
+  <!--TAMANHOS DO PRODUTO-->
+  <ion-grid>
+    <ion-row *ngFor="let tamanho of produto.grade[produto.selectedCor].tamanhos" [style.display]="canShow(tamanho)"
+             justify-content-center>
+      <ion-col col-4 text-end align-self-center style="font-size: larger">
+        <span>Tamanho {{tamanho.tipo}}</span>
+      </ion-col>
+      <ion-col col-2 text-end align-self-center (click)="diminuiQuantidade(tamanho)">
+        <ion-icon style="font-size: xx-large" name="remove-circle" color="primary">
+        </ion-icon>
+      </ion-col>
+      <ion-col col-2 text-center style="font-weight: bold; font-size: large" align-self-center
+               [ngClass]="{'font-red': verificaQuantidade(tamanho)}">
+        {{getProdutoCarrinhoQuantidade(tamanho.id)}}
+      </ion-col>
+      <ion-col col-2 text-start align-self-center (click)="aumentaQuantidade(tamanho)">
+        <ion-icon style="font-size: xx-large" name="add-circle" color="primary">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!---->
+</ion-content>
+
+<ion-footer>
+  <div text-center style="background-color: #260031">
+    <button ion-button clear full color="light" style="text-transform: none; height: 44px; margin: 0"
+            (click)="adicionaProdutoCarrinho()">
+      <ion-icon float-left style="margin-right: 8px; font-size: x-large" name="basket"></ion-icon>
+      Adicionar ao Carrinho
+    </button>
+  </div>
+</ion-footer>

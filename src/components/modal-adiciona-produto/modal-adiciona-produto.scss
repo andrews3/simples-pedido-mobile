@@ -1,0 +1,13 @@
+modal-adiciona-produto {
+  .imagem-foto {
+    display: inline-block;
+    border-radius: 4px;
+    margin-top: 10px;
+    max-width: 35%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  .font-red {
+    color: #f53d3d;
+  }
+}

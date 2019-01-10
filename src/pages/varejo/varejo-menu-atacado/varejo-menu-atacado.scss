@@ -1,0 +1,30 @@
+page-varejo-menu-atacado {
+  .container {
+    margin-right: 15px;
+    margin-left: 15px;
+    height: calc(50% - 22.5px) !important;
+    width: calc(100% - 30px) !important;
+  }
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    //max-height: calc(33% - 18px) !important;
+    max-height: 33%;
+    height: 33%;
+    border-radius: 4px !important;
+  }
+
+  .card-md {
+    margin: 12px;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 40%;
+    font-size: 6vw;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+}
